@@ -1,0 +1,124 @@
+@import url("https://fonts.googleapis.com/css?family=DM+Sans:400,500,700|Source+Sans+Pro:300,400,600,700&display=swap");
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    outline: none;
+    font-family: "DM Sans", sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+:root {
+    /* Main Colors */
+    --body-color: #24273b;
+    --sidebar-color: #151728;
+    --primary-color : #03dac6;
+    --primary-color-light: #ff0266;
+    --text-color: #a2a4b4;
+    --text-color-shadow: #64677a;
+    --text-color-bold: #ccc8db;
+    --text-color-light: #fff;
+    --online-color: #7fd222;
+    --offline-color: #606a8d;
+    --img-border-color: #e2b96c;
+    --scroll-bar-color: #313342;
+    
+    /* Transition */
+    --tran-03: all 0.3s ease;
+    --tran-04: all 0.4s ease;
+    --tran-05: all 0.5s ease;
+    --tran-06: all 0.6s ease;
+
+    /* Width */
+    --var-navbar-width: 18rem;
+    --var-container-width: calc(100% - 40rem);
+    --var-container-width-pc: calc(100% - 4rem);
+}
+
+body { 
+    background-color: var(--body-color);
+    color: var(--text-color);
+}
+
+a { text-decoration: none; }
+svg { height: 1.5rem; cursor: pointer;}
+h3,h4 { letter-spacing: 2px; opacity: 0.6; }
+
+.none { display: none !important;}
+.s{ font-size: 75% }
+.l{ font-size: 110% }
+.c1{ color: var(--primary-color); }
+.c2{ color: var(--text-color-light); }
+.c3{ color: var(--text-color-shadow); }
+
+.sumaho { display: none !important}
+.nosumaho { display: block !important}
+
+/* Smart Phone */
+
+@media screen and (max-width: 1024px) {
+    .sumaho { display: block !important; }
+    .nosumaho { display: none !important; }
+}
+
+/* Animation */
+
+.container {
+    animation: fadeDown ease 1s;
+}
+
+@media screen and (min-width: 1024px) {
+    #nav-left {
+        animation: fadeLeft ease 1s;
+    }
+    
+    #nav-right {
+        animation: fadeRight ease 1s;
+    }
+    
+    .nav-right-sp {
+        animation: fade ease 1s;
+    }
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+    } to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10rem);
+    } to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-10rem);
+    } to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeRight {
+    from {
+        opacity: 0;
+        transform: translateX(10rem);
+    } to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
