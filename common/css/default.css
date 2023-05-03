@@ -36,7 +36,7 @@ html {
     /* Width */
     --var-navbar-width: 18rem;
     --var-container-width: calc(100% - 40rem);
-    --var-container-width-pc: calc(100% - 4rem);
+    --var-container-width-tab-sp: calc(100% - 4rem);
 }
 
 body { 
@@ -69,6 +69,10 @@ h3,h4 { letter-spacing: 2px; opacity: 0.6; }
 
 .container {
     animation: fadeDown ease 1s;
+}
+
+.nav-footer {
+    animation: fadeRight ease 1s;
 }
 
 @media screen and (min-width: 1024px) {

@@ -15,6 +15,7 @@ html {
 
 /* Navigation */
 #nav-left {
+  overflow-y: scroll;
   position: fixed;
   z-index: 10;
   top: 0;
@@ -22,25 +23,26 @@ html {
   bottom: 0;
   width: var(--var-navbar-width);
   background-color: var(--sidebar-color);
-  transition: var(--tran-06);
   transform: translateX(0);
+  transition: var(--tran-06);
+}
+#nav-left::-webkit-scrollbar {
+  width: 10px;
+}
+#nav-left::-webkit-scrollbar-track {
+  background-color: var(--sidebar-color);
+}
+#nav-left::-webkit-scrollbar-thumb {
+  background-color: var(--scroll-bar-color);
+  border-radius: 4px;
+}
+#nav-left::-webkit-scrollbar-corner {
+  background-color: var(--sidebar-color);
 }
 @media screen and (max-width: 767px) {
   #nav-left {
     transition: var(--tran-06);
     transform: translateX(-18rem);
-  }
-  #nav-left > .modal {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 18rem;
-    background-color: black;
-    opacity: 0.6;
-    transition: var(--tran-06);
-    height: 100vh;
-    width: 100vw;
-    overflow: auto;
   }
 }
 #nav-left .header {
@@ -147,16 +149,6 @@ html {
   color: var(--primary-color);
   text-shadow: 1px 1px 2px var(--primary-color);
 }
-#nav-left::-webkit-scrollbar {
-  width: 10px;
-}
-#nav-left::-webkit-scrollbar-track {
-  background-color: var(--sidebar-color);
-}
-#nav-left::-webkit-scrollbar-thumb {
-  background-color: var(--scroll-bar-color);
-  border-radius: 4px;
-}
 
 .nav-left-sp {
   position: fixed;
@@ -175,6 +167,7 @@ html {
 }
 
 #nav-right {
+  overflow-y: scroll;
   position: fixed;
   z-index: 10;
   top: 0;
@@ -185,22 +178,23 @@ html {
   transform: translateX(0);
   transition: var(--tran-06);
 }
+#nav-right::-webkit-scrollbar {
+  width: 10px;
+}
+#nav-right::-webkit-scrollbar-track {
+  background-color: var(--sidebar-color);
+}
+#nav-right::-webkit-scrollbar-thumb {
+  background-color: var(--scroll-bar-color);
+  border-radius: 4px;
+}
+#nav-right::-webkit-scrollbar-corner {
+  background-color: var(--sidebar-color);
+}
 @media screen and (max-width: 1251px) {
   #nav-right {
     transform: translateX(18rem);
     transition: var(--tran-06);
-  }
-  #nav-right .modal {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    right: 18rem;
-    background-color: black;
-    opacity: 0.6;
-    transition: var(--tran-06);
-    height: 100vh;
-    width: 100vw;
-    overflow: auto;
   }
 }
 #nav-right .header {
@@ -250,7 +244,8 @@ html {
   height: 2rem;
 }
 #nav-right .body {
-  margin: 4rem 0;
+  margin: 4rem 0 3rem 0;
+  position: relative;
 }
 #nav-right .body .stories {
   padding: 2rem 1rem 1rem 2rem;
@@ -325,47 +320,46 @@ html {
   border: 1px solid var(--text-color);
   opacity: 0.2;
 }
-#nav-right .footer {
-  padding: 1rem;
+
+#nav-footer {
   position: fixed;
   bottom: 0;
   right: 0;
-  width: var(--var-navbar-width);
+  padding: 1rem;
+  width: calc(var(--var-navbar-width) - 1rem);
   z-index: 20;
   background-color: var(--sidebar-color);
   display: flex;
   justify-content: space-between;
+  transform: translateX(0);
+  transition: var(--tran-06);
 }
-#nav-right .footer .search {
+#nav-footer .search {
   display: flex;
   align-items: center;
   gap: 0.3rem;
 }
-#nav-right .footer .search input {
+#nav-footer .search input {
   background-color: var(--sidebar-color);
   border: 0;
   color: var(--text-color);
 }
-#nav-right .footer .setting {
+#nav-footer .setting {
   cursor: pointer;
   display: flex;
   align-items: center;
   gap: 5px;
 }
-#nav-right .footer .setting svg:hover {
+#nav-footer .setting svg:hover {
   transition: var(--tran-03);
   color: var(--primary-color);
   text-shadow: 1px 1px 1px var(--primary-color);
 }
-#nav-right::-webkit-scrollbar {
-  width: 10px;
-}
-#nav-right::-webkit-scrollbar-track {
-  background-color: var(--sidebar-color);
-}
-#nav-right::-webkit-scrollbar-thumb {
-  background-color: var(--scroll-bar-color);
-  border-radius: 4px;
+@media screen and (max-width: 1251px) {
+  #nav-footer {
+    transform: translateX(18rem);
+    transition: var(--tran-06);
+  }
 }
 
 .nav-right-sp {
@@ -398,6 +392,19 @@ html {
   background-color: var(--primary-color);
 }
 
+.modal {
+  z-index: 5;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background-color: black;
+  opacity: 0.6;
+  transition: var(--tran-06);
+  height: 100vh;
+  width: 100vw;
+}
+
 /* End Navigation */
 /* Container */
 .container {
@@ -409,7 +416,7 @@ html {
   .container {
     margin-left: 19rem;
     margin-right: 1rem;
-    max-width: var(--var-container-width-pc);
+    max-width: var(--var-container-width-tab-sp);
   }
 }
 @media screen and (max-width: 767px) {
@@ -672,7 +679,7 @@ html {
   box-shadow: 0 0 8px var(--text-color-light);
 }
 .container > .body .status::-webkit-scrollbar {
-  width: 6px;
+  width: 10px;
 }
 .container > .body .status::-webkit-scrollbar-track {
   background-color: var(--sidebar-color);

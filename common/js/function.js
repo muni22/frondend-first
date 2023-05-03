@@ -1,32 +1,39 @@
+
 // Nav-left sp handler
 const navLeft = document.getElementById('nav-left');
-const navLeftModal = document.querySelector('#nav-left .modal');
+const navModalLeft = document.querySelector('.modal-left');
 
 const navLeftSmartPhone = document.querySelector('.nav-left-sp');
 navLeftSmartPhone.addEventListener("click", () => {
-  navLeftModal.classList.remove("none");
+  navModalLeft.classList.remove("none");
   navLeft.style.transform = "translateX(0)";
   navLeft.style.transition = "all 0.6s ease";
 });
 
-navLeftModal.addEventListener("click", () => {
-  navLeftModal.classList.add("none");
+navModalLeft.addEventListener("click", () => {
+  navModalLeft.classList.add("none");
   navLeft.style.transform = "translateX(-18rem)";
   navLeft.style.transition = "all 0.6s ease";
 });
 
 // Nav-right sp handler
 const navRight = document.getElementById('nav-right');
-const navRightModal = document.querySelector('#nav-right .modal');
+const navFooter = document.getElementById('nav-footer');
+const navModalRight = document.querySelector('.modal-right');
+
 
 const navRightSmartPhone = document.querySelector('.nav-right-sp .button');
 navRightSmartPhone.addEventListener("click", () => {
-  navRightModal.classList.remove("none");
+  navModalRight.classList.remove("none");
+  navFooter.style.transform = "translateX(0)";
+  navFooter.style.transition = "all 0.6s ease";
   navRight.style.transform = "translateX(0)";
   navRight.style.transition = "all 0.6s ease";
 });
-navRightModal.addEventListener("click", () => {
-  navRightModal.classList.add("none");
+navModalRight.addEventListener("click", () => {
+  navModalRight.classList.add("none");
+  navFooter.style.transform = "translateX(18rem)";
+  navFooter.style.transition = "all 0.6s ease";
   navRight.style.transform = "translateX(18rem)";
   navRight.style.transition = "all 0.6s ease";
 });
